@@ -1,5 +1,6 @@
 <?php
 
+use App\Item;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +12,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        foreach (range(1, 20) as $i) {
+            factory(Item::class)->create([
+                'name' => 'zeszyt'.$i,
+                'price' => 5*100,
+                'amount' => 10,
+            ]);
+        }
     }
 }
