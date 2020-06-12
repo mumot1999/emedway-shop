@@ -40,7 +40,7 @@
         <input name="email" value="{{old('email')}}"/>
 
         <label for="nip">NIP</label>
-        <input name="nip" value="{{old('nip')}}"/>
+        <input name="nip" id='nip-input' value="{{old('nip')}}"/>
 
 
     </form>

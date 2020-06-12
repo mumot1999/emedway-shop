@@ -41,8 +41,16 @@ const checkout = () => {
 
     form.submit();
 }
+const onChangeNip = () => {
+    let value = document.getElementById('nip-input').value;
+    value = value.replace(/\D/g,'');
+    const array = [value.slice(0,3), value.slice(3,5), value.slice(5,7), value.slice(7,10)].filter(value => value !== '')
+    document.getElementById('nip-input').value = array.join('-');
+}
+
 // $("#cart").html("yourHtml");
 window.onload = () => {
     cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('nip-input').addEventListener('keyup', onChangeNip)
     showCard();
 }
