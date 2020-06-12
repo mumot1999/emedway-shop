@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         foreach (range(1, 20) as $i) {
             factory(Item::class)->create([
-                'name' => 'zeszyt'.$i,
+                'name' => 'product'.$i,
                 'price' => 5*100,
                 'amount' => 10,
             ]);
