@@ -11,6 +11,9 @@ class MainController extends Controller
 {
     public function postCheckout(Request $request)
     {
+        if(!$request->get('items'))
+            return back()->withErrors(['items' => "Your cart can't be empty"])->withInput($request->all());
+
         $this->validate($request, [
             'email' => 'required|email',
             'phone' => 'required|int',
@@ -19,6 +22,7 @@ class MainController extends Controller
             'street' => 'required',
             'postcode' => 'required',
         ]);
+
         $items = Item::findMany($request->get('items'));
         dd($request->all());
     }
