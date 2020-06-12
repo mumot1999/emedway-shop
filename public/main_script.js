@@ -25,20 +25,18 @@ const resetCart = () => {
 const checkout = () => {
     // The rest of this code assumes you are not using a library.
     // It can be made less wordy if you use one.
-    const form = document.createElement('form');
+    const form = document.getElementById('checkout-form');
     form.method = 'post';
     form.action = '/checkout';
 
     for (item in cart) {
         const hiddenField = document.createElement('input');
-        hiddenField.type = 'hidden';
-        hiddenField.name = 'item[]';
+        hiddenField.name = 'items[]';
         hiddenField.value = item;
 
         form.appendChild(hiddenField);
     }
 
-    document.body.appendChild(form);
     form.submit();
 }
 // $("#cart").html("yourHtml");

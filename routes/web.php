@@ -18,3 +18,5 @@ Route::get('/', function () {
         'items' => \App\Item::paginate(4)
     ]);
 })->name('index');
+
+Route::post('/checkout', 'MainController@postCheckout');
