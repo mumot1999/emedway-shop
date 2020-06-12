@@ -6,6 +6,12 @@
     <button onclick="resetCart()">Wyczyść</button>
     <button onclick="checkout()">Złóż zamówienie</button>
 
+    @if(session()->has('success_checkout'))
+        <div class="alert alert-success">
+            Checkout success
+        </div>
+    @endif
+
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

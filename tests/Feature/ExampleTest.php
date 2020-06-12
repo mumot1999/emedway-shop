@@ -34,4 +34,24 @@ class ExampleTest extends TestCase
         }
         $response->assertDontSee('zeszyt5');
     }
+
+    public function test_checkout()
+    {
+        $this->followingRedirects();
+        $this->post('/checkout', [
+            'name' => 'Name',
+            'street' => 'street',
+            'nip' => 'nip',
+            'postcode' => '00-000',
+            'email' => 'email@email.com',
+            'phone' => '123540327',
+            'items' => [
+                1, 2
+            ]
+        ])
+            ->assertSee('Checkout success')
+        ;
+
+        $this->assertEquals(9, Item::find(1)->amount);
+    }
 }

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
@@ -24,6 +25,14 @@ class MainController extends Controller
         ]);
 
         $items = Item::findMany($request->get('items'));
-        dd($request->all());
+
+        foreach ($items as $item) {
+            DB::transaction(function () use ($item) {
+                $item->amount--;
+                $item->update();
+            });
+        }
+
+        return back()->with('success_checkout', true);
     }
 }
