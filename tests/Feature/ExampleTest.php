@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Item;
+use App\Mail\CheckoutMail;
+use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
@@ -37,6 +39,7 @@ class ExampleTest extends TestCase
 
     public function test_checkout()
     {
+        Mail::fake();
         $this->followingRedirects();
         $this->post('/checkout', [
             'name' => 'Name',
@@ -53,5 +56,6 @@ class ExampleTest extends TestCase
         ;
 
         $this->assertEquals(9, Item::find(5)->amount);
+        Mail::assertSent(CheckoutMail::class, 1);
     }
 }

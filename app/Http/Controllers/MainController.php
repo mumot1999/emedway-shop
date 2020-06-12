@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 
 
 use App\Item;
+use App\Mail\CheckoutMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
 {
@@ -35,6 +37,10 @@ class MainController extends Controller
                 $item->update();
             });
         }
+
+        Mail::to([
+            'to' => $request->email
+        ])->send(new CheckoutMail($items));
 
         return back()->with('success_checkout', true);
     }

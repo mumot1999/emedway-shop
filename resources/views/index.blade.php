@@ -46,8 +46,10 @@
     </form>
     @foreach ($items as $item)
         <div>
-            {{$item->name}}
-            <button onclick="addToCart( {{ $item->id}} , '{{$item->name }}' );">Dodaj do koszyka</button>
+            <button type="button" class="btn btn-warning">{{$item->name}}</button>
+            <button type="button" class="btn btn-primary">{{$item->price}}</button>
+
+            <button type="button" class="btn btn-secondary" onclick="addToCart( {{ $item->id}} , '{{$item->name }}' );">Dodaj do koszyka</button>
             Left: {{$item->amount}}
         </div>
     @endforeach
