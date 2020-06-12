@@ -45,8 +45,11 @@
 
     </form>
     @foreach ($items as $item)
-        <p>{{ $item->name }}</p>
-        <button onclick="addToCart( {{ $item->id}} , '{{$item->name }}' );">Dodaj do koszyka</button>
+        <div>
+            {{$item->name}}
+            <button onclick="addToCart( {{ $item->id}} , '{{$item->name }}' );">Dodaj do koszyka</button>
+            Left: {{$item->amount}}
+        </div>
     @endforeach
     {{ $items->links() }}
 @endsection
