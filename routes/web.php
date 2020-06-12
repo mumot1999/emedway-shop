@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index', [
-        'items' => \App\Item::paginate(4)
-    ]);
+    return redirect('/home');
 })->name('index');
 
 Route::post('/checkout', 'MainController@postCheckout');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
