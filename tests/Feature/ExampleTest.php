@@ -32,5 +32,6 @@ class ExampleTest extends TestCase
         foreach (range(1,4) as $i) {
             $response->assertSee('zeszyt'.$i);
         }
+        $response->assertDontSee('zeszyt5');
     }
 }

@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index', [
-        'items' => \App\Item::all()
+        'items' => \App\Item::paginate(4)
     ]);
-});
+})->name('index');
