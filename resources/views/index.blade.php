@@ -34,7 +34,7 @@
         <input name="postcode" value="{{old('postcode')}}"/>
 
         <label for="phone">Numer telefonu</label>
-        <input name="phone" value="{{old('phone')}}"/>
+        <input name="phone" id='phone-input' value="{{old('phone')}}"/>
 
         <label for="email">E-mail</label>
         <input name="email" value="{{old('email')}}"/>

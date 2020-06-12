@@ -48,9 +48,21 @@ const onChangeNip = () => {
     document.getElementById('nip-input').value = array.join('-');
 }
 
+const onChangePhone = () => {
+    let value = document.getElementById('phone-input').value;
+    if(value.length > 1){
+        value = value.slice(3);
+    }
+    value = value.replace(/\D/g,'');
+
+    const array = [value.slice(0,3), value.slice(3,6), value.slice(6,9)].filter(value => value !== '')
+    document.getElementById('phone-input').value = '+48 ' + array.join(' ');
+}
+
 // $("#cart").html("yourHtml");
 window.onload = () => {
     cart = JSON.parse(localStorage.getItem('cart')) || [];
     document.getElementById('nip-input').addEventListener('keyup', onChangeNip)
+    document.getElementById('phone-input').addEventListener('keyup', onChangePhone)
     showCard();
 }
