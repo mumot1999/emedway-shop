@@ -24,14 +24,18 @@
 
     <form id="checkout-form" method="post">
         {{csrf_field()}}
-        <label for="name">Imię</label>
+        <label for="name">Imię i nazwisko</label>
         <input name="name" value="{{old('name')}}"/>
 
-        <label for="street">Ulica</label>
-        <input name="street" value="{{old('street')}}"/>
+
+        <label for="city">Miasto</label>
+        <input name="city" value="{{old('city')}}"/>
 
         <label for="postcode">Kod pocztowy</label>
         <input name="postcode" value="{{old('postcode')}}"/>
+
+        <label for="street">Ulica</label>
+        <input name="street" value="{{old('street')}}"/>
 
         <label for="phone">Numer telefonu</label>
         <input name="phone" id='phone-input' value="{{old('phone')}}"/>

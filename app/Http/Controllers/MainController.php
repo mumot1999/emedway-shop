@@ -24,6 +24,7 @@ class MainController extends Controller
             'name' => 'required',
             'street' => 'required',
             'postcode' => 'required',
+            'city' => 'required'
         ]);
 
         $items = Item::findMany($request->get('items'));
