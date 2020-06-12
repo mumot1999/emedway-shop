@@ -29,13 +29,15 @@ const checkout = () => {
     form.method = 'post';
     form.action = '/checkout';
 
-    for (item in cart) {
+    cart.forEach((item) => {
+        console.log(item);
         const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
         hiddenField.name = 'items[]';
-        hiddenField.value = item;
+        hiddenField.value = item.id;
 
         form.appendChild(hiddenField);
-    }
+    })
 
     form.submit();
 }
