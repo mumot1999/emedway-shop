@@ -46,12 +46,12 @@ class ExampleTest extends TestCase
             'email' => 'email@email.com',
             'phone' => '123540327',
             'items' => [
-                1, 2
+                '0' => '5'
             ]
         ])
             ->assertSee('Checkout success')
         ;
 
-        $this->assertEquals(9, Item::find(1)->amount);
+        $this->assertEquals(9, Item::find(5)->amount);
     }
 }
