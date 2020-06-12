@@ -46,11 +46,11 @@
     </form>
     @foreach ($items as $item)
         <div>
-            <button type="button" class="btn btn-warning">{{$item->name}}</button>
-            <button type="button" class="btn btn-primary">{{$item->price}}</button>
+            <button type="button" class="btn btn-warning" onclick="addToCart( {{ $item->id}} , '{{$item->name }}' );">{{$item->name}}</button>
+            <button type="button" class="btn btn-primary" onclick="addToCart( {{ $item->id}} , '{{$item->name }}' );">{{$item->price}}</button>
 
             <button type="button" class="btn btn-secondary" onclick="addToCart( {{ $item->id}} , '{{$item->name }}' );">Dodaj do koszyka</button>
-            Left: {{$item->amount}}
+            Pozostało: {{$item->amount}}
         </div>
     @endforeach
     {{ $items->links() }}

@@ -10,7 +10,7 @@ class Item extends Model
 {
     public function getPriceAttribute()
     {
-        return strval($this->original['price'] / 100 ).' zł';
+        return number_format((float) $this->original['price'] / 100, 2, '.', ' ').' zł';
     }
 
 }
