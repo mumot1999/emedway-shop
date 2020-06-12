@@ -19,7 +19,7 @@ class MainController extends Controller
 
         $this->validate($request, [
             'email' => 'required|email',
-            'phone' => 'required|int',
+            'phone' => 'required',
             'nip' => 'required',
             'name' => 'required',
             'street' => 'required',
