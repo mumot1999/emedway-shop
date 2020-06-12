@@ -48,6 +48,7 @@ class ExampleTest extends TestCase
             'postcode' => '00-000',
             'email' => 'email@email.com',
             'phone' => '123540327',
+            'city' => 'city',
             'items' => [
                 '0' => '5'
             ]
