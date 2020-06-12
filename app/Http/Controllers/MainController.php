@@ -27,6 +27,9 @@ class MainController extends Controller
         $items = Item::findMany($request->get('items'));
 
         foreach ($items as $item) {
+            if($item->amount == 0){
+                return back()->withErrors(['items' => "Sorry, we don't have ".$item->name])->withInput($request->all());
+            }
             DB::transaction(function () use ($item) {
                 $item->amount--;
                 $item->update();
